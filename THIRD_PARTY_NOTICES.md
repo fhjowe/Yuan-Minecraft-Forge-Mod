@@ -9,7 +9,23 @@ re-license them. Please comply with each owner's terms.
 - `assets/minecraft/shaders/*` (e.g. `the_world.json`, `yuan_world_style.json`,
   `motion_blur`, `rewind`, `yuan_style`) — vanilla Minecraft shader resources,
   owned by Mojang/Microsoft. Included under Mojang's asset usage guidelines for
-  mods. See also `docs/PAPER_SHADERS_NOTICE.md` in this repository.
+  mods.
+
+## paper-design/shaders (晶格 / Voronoi rendering)
+
+The "晶格" (lattice / Voronoi) weapon render style is ported from
+`@paper-design/shaders`, upstream https://github.com/paper-design/shaders
+(original algorithm reference: https://www.shadertoy.com/view/ldl3W8).
+
+- `assets/yuan/shaders/core/voronoi_item.fsh` — two-pass Voronoi cell edges,
+  noise displacement, 5-color gradient, inner glow and cell gaps.
+- `assets/yuan/textures/effect/voronoi_noise.png` — original random-noise texture.
+
+Port modifications for Minecraft 1.20.1 `#version 150`: explicit
+`VoronoiColor0..4` color uniforms, `SpriteBounds` blade UV space, view-following
+(`ViewYaw`/`ViewPitch`) and X/Y offset config; the algorithm itself is unchanged.
+Licensed under **Apache License 2.0**
+(https://www.apache.org/licenses/LICENSE-2.0).
 
 ## ArcaneVortex / 秘法涡流 (cosmic rendering)
 

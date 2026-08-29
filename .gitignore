@@ -82,3 +82,6 @@ gradle-local.properties
 # Dev-only scripts/tools (kept locally, not published)
 scripts/
 tools/
+
+# Dev docs / handoff journals (kept locally, not published)
+docs/

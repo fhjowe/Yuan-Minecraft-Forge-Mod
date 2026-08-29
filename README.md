@@ -27,8 +27,6 @@
 - [按键](#按键)
 - [构建](#构建)
 - [兼容性与已知限制](#兼容性与已知限制)
-- [目录结构](#目录结构)
-- [文档](#文档)
 - [许可与致谢](#许可与致谢)
 
 ---
@@ -199,14 +197,6 @@ forge/src/main/java/com/yuan/
 ├── timerewind/      # 时间回溯(记录器/还原器/回放)
 └── timestop/        # 世界时停(状态/着色器/粒子/渲染)
 ```
-
----
-
-## 📖 文档
-
-- 开发交接 / 完整变更记录:`docs/YUANMOD_HANDOFF_CURRENT.md`
-- 渲染与回溯专项记录:`docs/YUAN_COSMIC_RENDER_HANDOFF_20260808.md`
-- 研究文档:`docs/research/`
 
 ---
 
