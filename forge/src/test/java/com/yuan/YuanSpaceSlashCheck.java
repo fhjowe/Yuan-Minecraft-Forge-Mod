@@ -45,9 +45,8 @@ public final class YuanSpaceSlashCheck {
         assert render.contains("YuanRenderStateSnapshot.capture()")
                 && render.contains("capturedState.restore()")
                 : "space slash must restore the captured render state before drawing at AFTER_LEVEL";
-        assert render.contains("YuanSpaceSlashEntity") && render.contains("ClientLevel")
-                && render.contains("addEntity")
-                : "space slash must spawn a visual entity through ClientLevel while shaders are active";
+        assert render.contains("YuanSpaceSlashEntity") && render.contains("mc.level.addEntity")
+                : "space slash must spawn a visual entity through the client level while shaders are active";
         assert render.contains("value = Dist.CLIENT")
                 : "space slash render subscriber must be restricted to Dist.CLIENT";
         assert !render.contains("Particle")

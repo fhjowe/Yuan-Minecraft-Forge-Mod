@@ -7,7 +7,7 @@ license = "MIT"
 modId = "yuan"
 version = "${mod_version}"
 displayName = "Yuan"
-authors = "shiroha"
+authors = "YuanNeo"
 description = '''Yuan weapons and armor mod'''
 
 [[dependencies.yuan]]

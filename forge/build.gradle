@@ -103,7 +103,7 @@ tasks.named('processResources', ProcessResources).configure {
         mod_id: 'yuan',
         mod_name: 'Yuan',
         mod_version: project.version,
-        mod_authors: 'shiroha',
+        mod_authors: 'YuanNeo',
         mod_description: 'Yuan weapons and armor mod'
     ]
 
