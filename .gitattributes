@@ -1,0 +1,3 @@
+* text=auto
+*.java text eol=lf
+native/live2d/** text eol=lf

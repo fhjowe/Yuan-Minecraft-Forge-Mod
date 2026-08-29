@@ -1,0 +1,25 @@
+# Forge Mods.toml 配置文件
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT"
+
+[[mods]]
+modId = "yuan"
+version = "${mod_version}"
+displayName = "Yuan"
+authors = "shiroha"
+description = '''Yuan weapons and armor mod'''
+
+[[dependencies.yuan]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,48)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.yuan]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"

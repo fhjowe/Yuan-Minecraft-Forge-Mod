@@ -1,0 +1,45 @@
+{
+    "blend": {
+        "func": "add",
+        "srcrgb": "srcalpha",
+        "dstrgb": "1-srcalpha"
+    },
+    "vertex": "yuan:voronoi_item",
+    "fragment": "yuan:voronoi_item",
+    "attributes": [
+        "Position",
+        "Color",
+        "UV0",
+        "UV2"
+    ],
+    "samplers": [
+        { "name": "u_noiseTexture" }
+    ],
+    "uniforms": [
+        { "name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },
+        { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },
+        { "name": "ColorModulator", "type": "float", "count": 4, "values": [ 1.0, 1.0, 1.0, 1.0 ] },
+        { "name": "Time", "type": "float", "count": 1, "values": [ 0.0 ] },
+        { "name": "VoronoiColorCount", "type": "float", "count": 1, "values": [ 1.0 ] },
+        { "name": "VoronoiStepsPerColor", "type": "float", "count": 1, "values": [ 3.0 ] },
+        { "name": "VoronoiColor0", "type": "float", "count": 4, "values": [ 1.0, 0.51, 0.278, 1.0 ] },
+        { "name": "VoronoiColor1", "type": "float", "count": 4, "values": [ 1.0, 0.898, 0.239, 1.0 ] },
+        { "name": "VoronoiColor2", "type": "float", "count": 4, "values": [ 1.0, 0.898, 0.239, 1.0 ] },
+        { "name": "VoronoiColor3", "type": "float", "count": 4, "values": [ 1.0, 0.898, 0.239, 1.0 ] },
+        { "name": "VoronoiColor4", "type": "float", "count": 4, "values": [ 1.0, 0.898, 0.239, 1.0 ] },
+        { "name": "VoronoiColorGlow", "type": "float", "count": 4, "values": [ 1.0, 1.0, 1.0, 1.0 ] },
+        { "name": "VoronoiColorGap", "type": "float", "count": 4, "values": [ 0.18, 0.0, 0.0, 1.0 ] },
+        { "name": "VoronoiDistortion", "type": "float", "count": 1, "values": [ 0.4 ] },
+        { "name": "VoronoiGap", "type": "float", "count": 1, "values": [ 0.04 ] },
+        { "name": "VoronoiGlow", "type": "float", "count": 1, "values": [ 0.0 ] },
+        { "name": "VoronoiScale", "type": "float", "count": 1, "values": [ 0.5 ] },
+        { "name": "VoronoiFov", "type": "float", "count": 1, "values": [ 6.0 ] },
+        { "name": "VoronoiSpeed", "type": "float", "count": 1, "values": [ 0.5 ] },
+        { "name": "VoronoiRotation", "type": "float", "count": 1, "values": [ 0.0 ] },
+        { "name": "VoronoiOffsetX", "type": "float", "count": 1, "values": [ 0.0 ] },
+        { "name": "VoronoiOffsetY", "type": "float", "count": 1, "values": [ 0.0 ] },
+        { "name": "SpriteBounds", "type": "float", "count": 4, "values": [ 0.0, 0.0, 1.0, 1.0 ] },
+        { "name": "ViewYaw", "type": "float", "count": 1, "values": [ 0.0 ] },
+        { "name": "ViewPitch", "type": "float", "count": 1, "values": [ 0.0 ] }
+    ]
+}

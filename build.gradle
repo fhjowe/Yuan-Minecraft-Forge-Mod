@@ -1,0 +1,23 @@
+allprojects {
+	apply plugin: 'java'
+	
+	group = maven_group
+	version = '1.0.0'
+	
+	tasks.withType(JavaCompile).configureEach {
+		options.encoding = 'UTF-8'
+		options.release = 17
+	}
+	
+	java {
+		withSourcesJar()
+	}
+	
+	tasks.withType(JavaCompile).configureEach {
+		options.fork = true
+	}
+	
+	tasks.withType(JavaExec).configureEach {
+		systemProperty 'minecraft.username', rootProject.properties.getOrDefault('minecraft_username', 'Player')
+	}
+}

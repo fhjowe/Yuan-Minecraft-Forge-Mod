@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "yuan",
+  "pattern": [
+    "NIN",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "I": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "yuan:yuan_leggings",
+    "count": 1
+  }
+}

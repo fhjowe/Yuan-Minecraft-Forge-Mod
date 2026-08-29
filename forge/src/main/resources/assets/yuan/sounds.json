@@ -1,0 +1,12 @@
+{
+  "stop": {
+    "sounds": [
+      "yuan:stop"
+    ]
+  },
+  "start": {
+    "sounds": [
+      "yuan:start"
+    ]
+  }
+}

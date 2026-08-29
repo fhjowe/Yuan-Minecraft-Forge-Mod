@@ -1,0 +1,197 @@
+plugins {
+	id 'net.minecraftforge.gradle' version '6.0.24'
+	id 'org.jetbrains.kotlin.jvm' version '2.1.21'
+	id 'org.jetbrains.kotlin.plugin.compose' version '2.1.21'
+	id 'org.jetbrains.compose' version '1.8.2'
+}
+
+base {
+	archivesName = "${rootProject.name}-${project.name}"
+}
+
+// Compose/Skiko 方案 B：直接渲染进 MC 帧缓冲；纯库由 JarJar 打包，FML 按 GAMELIBRARY 加载
+jarJar.enable()
+
+// Force Java 17 source/target so we can compile with the system's Java 21.
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.release = 17
+	options.compilerArgs << '-Xlint:-removal'
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+	kotlinOptions.jvmTarget = '17'
+}
+
+minecraft {
+	mappings channel: 'official', version: minecraft_version
+	copyIdeResources = true
+	accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+	runs {
+		configureEach {
+			workingDirectory project.file('run')
+			property 'forge.logging.markers', 'REGISTRIES'
+			property 'forge.logging.console.level', 'debug'
+
+			mods {
+				yuan {
+					source sourceSets.main
+				}
+			}
+		}
+
+		client {
+			args '--username', rootProject.properties.getOrDefault('minecraft_username', 'Player')
+		}
+	}
+}
+
+jar {
+	archiveClassifier.set("")
+	from("${rootProject.projectDir}/LICENSE") {
+		rename { "${it}_${base.archivesName.get()}"}
+	}
+
+	// Compose/Skiko 类直接合并进 jar（含 Skiko 原生 dll 资源）
+	from({ project.configurations.composeRuntime.resolvedConfiguration.resolvedArtifacts.collect { zipTree(it.file) } }) {
+		exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+		exclude 'META-INF/MANIFEST.MF'
+		exclude 'module-info.class'
+		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	}
+
+	manifest {
+		attributes([
+			'Specification-Title'     : 'yuan',
+			'Specification-Vendor'    : 'Yuan Author',
+			'Specification-Version'   : '1',
+			'Implementation-Title'    : project.name,
+			'Implementation-Version'  : project.version,
+			'Implementation-Vendor'   : 'Yuan Author'
+		])
+	}
+}
+
+tasks.named('jarJar', Jar).configure {
+	from({ project.configurations.composeRuntime.resolvedConfiguration.resolvedArtifacts.collect { zipTree(it.file) } }) {
+		exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+		exclude 'META-INF/MANIFEST.MF'
+		exclude 'module-info.class'
+		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	}
+}
+
+repositories {
+	maven {
+		url = 'https://repo.spongepowered.org/maven'
+	}
+	google()
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    def replaceProperties = [
+        minecraft_version: '1.20.1',
+        minecraft_version_range: '[1.20.1,1.21)',
+        forge_version: project.forge_version,
+        forge_version_range: '[47,48)',
+        loader_version_range: '[47,)',
+        mod_id: 'yuan',
+        mod_name: 'Yuan',
+        mod_version: project.version,
+        mod_authors: 'shiroha',
+        mod_description: 'Yuan weapons and armor mod'
+    ]
+
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+configurations {
+    composeRuntime
+}
+
+// Skiko 桌面端按 AWT 变体解析，否则与 Android 变体产生歧义
+configurations.configureEach {
+    attributes {
+        attribute(Attribute.of('ui', String), 'awt')
+    }
+}
+
+dependencies {
+    // Forge 平台
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Compose Multiplatform + Skiko（方案 B 自包含，运行时随 -all.jar 以 JarJar 加载）
+    def composeDeps = [
+        compose.desktop.currentOs,
+        compose.ui,
+        compose.foundation,
+        compose.material3,
+        compose.runtime
+    ]
+    composeDeps.each { implementation(it) }
+    composeDeps.each { composeRuntime(it) }
+    // 桌面实现类只在 runtimeElements 暴露，编译期需显式声明
+    implementation "org.jetbrains.compose.ui:ui-desktop:1.8.2"
+    implementation "org.jetbrains.skiko:skiko-awt:0.9.4.2"
+
+    // MixinExtras 链式注入：避免与 mega 原版的 @Redirect 争抢同一调用点
+    compileOnly "io.github.llamalad7:mixinextras-common:0.3.5"
+    annotationProcessor "io.github.llamalad7:mixinextras-common:0.3.5"
+
+    // 自打包 MixinExtras：不依赖 Embeddium 附带的那份，关掉 Oculus/Embeddium 也能启动
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.3.5")) {
+        jarJar.ranged(it, "[0.3.5,)")
+    }
+}
+
+tasks.named('jar', Jar).configure {
+  manifest {
+    attributes 'MixinConfigs': 'yuan.mixins.json'
+  }
+  finalizedBy 'reobfJar'
+}
+
+sourceSets {
+    test {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+def javaCheckClasses = [
+    'com.yuan.YuanSecurityCheck',
+    'com.yuan.YuanRenderCheck',
+    'com.yuan.YuanGuiCheck',
+    'com.yuan.YuanBanCheck',
+    'com.yuan.MixinConfigCheck',
+    'com.yuan.item.YuanAttackCheck',
+    'com.yuan.YuanTimeStopCheck',
+    'com.yuan.YuanSpaceSlashCheck',
+    'com.yuan.YuanTimeRewindCheck',
+]
+
+javaCheckClasses.eachWithIndex { checkEntry, index ->
+    tasks.register("javaCheck${index}", JavaExec) {
+        dependsOn testClasses
+        classpath = sourceSets.test.runtimeClasspath
+        mainClass = checkEntry
+        jvmArgs '-ea'
+    }
+}
+
+tasks.register('javaChecks') {
+    dependsOn javaCheckClasses.indices.collect { "javaCheck${it}" }
+}
+
+tasks.named('build') {
+    dependsOn 'javaChecks'
+}

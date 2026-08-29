@@ -1,0 +1,10 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "yuan:item/yuan_god_sword"
+  },
+  "loader": "yuan:cosmic_neo",
+  "cosmic_neo": {
+    "mask": "yuan:item/yuan_god_sword_mask"
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "mappings": {
+    "com/yuan/mixin/TimestopLevelMixin": {
+      "guardEntityTick": "Lnet/minecraft/world/level/Level;m_46653_(Ljava/util/function/Consumer;Lnet/minecraft/world/entity/Entity;)V"
+    },
+    "com/yuan/mixin/TimerewindServerLevelMixin": {
+      "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z": "Lnet/minecraft/world/level/Level;m_7731_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z"
+    },
+    "com/yuan/mixin/TimestopServerLevelMixin": {
+      "tickTime": "Lnet/minecraft/server/level/ServerLevel;m_8809_()V",
+      "tickBlock": "Lnet/minecraft/server/level/ServerLevel;m_184112_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;)V"
+    },
+    "com/yuan/mixin/TimestopMinecraftServerMixin": {
+      "tickChildren": "Lnet/minecraft/server/MinecraftServer;m_5703_(Ljava/util/function/BooleanSupplier;)V",
+      "tickServer": "Lnet/minecraft/server/MinecraftServer;m_5705_(Ljava/util/function/BooleanSupplier;)V"
+    },
+    "com/yuan/mixin/TimestopBlockStateMixin": {
+      "canBeReplaced(Lnet/minecraft/world/item/context/BlockPlaceContext;)Z": "Lnet/minecraft/world/level/block/state/BlockBehaviour$BlockStateBase;m_60629_(Lnet/minecraft/world/item/context/BlockPlaceContext;)Z",
+      "randomTick": "Lnet/minecraft/world/level/block/state/BlockBehaviour$BlockStateBase;m_222972_(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V",
+      "neighborChanged": "Lnet/minecraft/world/level/block/state/BlockBehaviour$BlockStateBase;m_60690_(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/core/BlockPos;Z)V",
+      "updateNeighbourShapes(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;II)V": "Lnet/minecraft/world/level/block/state/BlockBehaviour$BlockStateBase;m_60705_(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;II)V",
+      "tick": "Lnet/minecraft/world/level/block/state/BlockBehaviour$BlockStateBase;m_222963_(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V",
+      "updateIndirectNeighbourShapes(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;II)V": "Lnet/minecraft/world/level/block/state/BlockBehaviour$BlockStateBase;m_60762_(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;II)V"
+    },
+    "com/yuan/mixin/TimestopRailMixin": {
+      "updateState": "Lnet/minecraft/world/level/block/RailBlock;m_6360_(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;)V"
+    },
+    "com/yuan/mixin/TimestopFluidMixin": {
+      "tick": "Lnet/minecraft/world/level/material/FluidState;m_76163_(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V",
+      "randomTick": "Lnet/minecraft/world/level/material/FluidState;m_230562_(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V",
+      "animateTick": "Lnet/minecraft/world/level/material/FluidState;m_230558_(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V"
+    },
+    "com/yuan/mixin/TimestopPlayerMixin": {
+      "hurt": "Lnet/minecraft/world/entity/player/Player;m_6469_(Lnet/minecraft/world/damagesource/DamageSource;F)Z"
+    },
+    "com/yuan/mixin/ItemRendererMixin": {
+      "render": "Lnet/minecraft/client/renderer/entity/ItemRenderer;m_115143_(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;ZLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;IILnet/minecraft/client/resources/model/BakedModel;)V"
+    },
+    "com/yuan/mixin/TimestopMinecraftMixin": {
+      "profiler": "f_91026_:Lnet/minecraft/util/profiling/ProfilerFiller;",
+      "gui": "f_91065_:Lnet/minecraft/client/gui/Gui;",
+      "pause": "f_91012_:Z",
+      "screen": "f_91080_:Lnet/minecraft/client/gui/screens/Screen;",
+      "player": "f_91074_:Lnet/minecraft/client/player/LocalPlayer;",
+      "level": "f_91073_:Lnet/minecraft/client/multiplayer/ClientLevel;",
+      "missTime": "f_91078_:I",
+      "overlay": "f_91081_:Lnet/minecraft/client/gui/screens/Overlay;",
+      "gameRenderer": "f_91063_:Lnet/minecraft/client/renderer/GameRenderer;",
+      "timer": "f_91091_:Lnet/minecraft/client/Timer;",
+      "pausePartialTick": "f_91013_:F",
+      "singleplayerServer": "f_91007_:Lnet/minecraft/client/server/IntegratedServer;",
+      "realPartialTick": "realPartialTick:F",
+      "particleEngine": "f_91061_:Lnet/minecraft/client/particle/ParticleEngine;",
+      "window": "f_90990_:Lcom/mojang/blaze3d/platform/Window;",
+      "soundManager": "f_91043_:Lnet/minecraft/client/sounds/SoundManager;",
+      "rightClickDelay": "f_91011_:I",
+      "setScreen": "Lnet/minecraft/client/Minecraft;m_91152_(Lnet/minecraft/client/gui/screens/Screen;)V",
+      "handleKeybinds": "Lnet/minecraft/client/Minecraft;m_91279_()V",
+      "tick": "Lnet/minecraft/client/Minecraft;m_91398_()V",
+      "run": "Lnet/minecraft/client/Minecraft;m_91374_()V",
+      "runTick": "Lnet/minecraft/client/Minecraft;m_91383_(Z)V",
+      "Lnet/minecraft/util/profiling/metrics/profiling/MetricsRecorder;endTick()V": "Lnet/minecraft/util/profiling/metrics/profiling/MetricsRecorder;m_142758_()V",
+      "Lnet/minecraft/client/renderer/GameRenderer;render(FJZ)V": "Lnet/minecraft/client/renderer/GameRenderer;m_109093_(FJZ)V"
+    },
+    "com/yuan/mixin/TimestopGameRendererMixin": {
+      "itemInHandRenderer": "f_109055_:Lnet/minecraft/client/renderer/ItemInHandRenderer;",
+      "postEffect": "f_109050_:Lnet/minecraft/client/renderer/PostChain;",
+      "minecraft": "f_109059_:Lnet/minecraft/client/Minecraft;",
+      "itemActivationOffY": "f_109049_:F",
+      "renderBuffers": "f_109064_:Lnet/minecraft/client/renderer/RenderBuffers;",
+      "panoramicMode": "f_109076_:Z",
+      "resetProjectionMatrix": "Lnet/minecraft/client/renderer/GameRenderer;m_252879_(Lorg/joml/Matrix4f;)V",
+      "getProjectionMatrix": "Lnet/minecraft/client/renderer/GameRenderer;m_253088_(D)Lorg/joml/Matrix4f;",
+      "getFov": "Lnet/minecraft/client/renderer/GameRenderer;m_109141_(Lnet/minecraft/client/Camera;FZ)D",
+      "bobHurt": "Lnet/minecraft/client/renderer/GameRenderer;m_109117_(Lcom/mojang/blaze3d/vertex/PoseStack;F)V",
+      "bobView": "Lnet/minecraft/client/renderer/GameRenderer;m_109138_(Lcom/mojang/blaze3d/vertex/PoseStack;F)V",
+      "loadEffect": "Lnet/minecraft/client/renderer/GameRenderer;m_109128_(Lnet/minecraft/resources/ResourceLocation;)V",
+      "shutdownEffect": "Lnet/minecraft/client/renderer/GameRenderer;m_109086_()V",
+      "checkEntityPostEffect": "Lnet/minecraft/client/renderer/GameRenderer;m_109106_(Lnet/minecraft/world/entity/Entity;)V",
+      "tickFov": "Lnet/minecraft/client/renderer/GameRenderer;m_109156_()V",
+      "render": "Lnet/minecraft/client/renderer/GameRenderer;m_109093_(FJZ)V",
+      "renderItemInHand": "Lnet/minecraft/client/renderer/GameRenderer;m_109120_(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/Camera;F)V",
+      "Lnet/minecraft/client/gui/Gui;render(Lnet/minecraft/client/gui/GuiGraphics;F)V": "Lnet/minecraft/client/gui/Gui;m_280421_(Lnet/minecraft/client/gui/GuiGraphics;F)V"
+    },
+    "com/yuan/mixin/TimestopCameraMixin": {
+      "setup": "Lnet/minecraft/client/Camera;m_90575_(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;ZZF)V",
+      "tick": "Lnet/minecraft/client/Camera;m_90565_()V"
+    },
+    "com/yuan/mixin/TimerewindCameraMixin": {
+      "tick": "Lnet/minecraft/client/Camera;m_90565_()V",
+      "setup": "Lnet/minecraft/client/Camera;m_90575_(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;ZZF)V"
+    },
+    "com/yuan/mixin/TimestopIntegratedServerMixin": {
+      "paused": "f_120016_:Z",
+      "tickServer": "Lnet/minecraft/client/server/IntegratedServer;m_5705_(Ljava/util/function/BooleanSupplier;)V",
+      "Lnet/minecraft/client/server/IntegratedServer;getProfiler()Lnet/minecraft/util/profiling/ProfilerFiller;": "Lnet/minecraft/client/server/IntegratedServer;m_129905_()Lnet/minecraft/util/profiling/ProfilerFiller;"
+    },
+    "com/yuan/mixin/TimestopRenderStateShardMixin": {
+      "setupGlintTexturing": "Lnet/minecraft/client/renderer/RenderStateShard;m_110186_(F)V",
+      "Lnet/minecraft/Util;getMillis()J": "Lnet/minecraft/Util;m_137550_()J"
+    },
+    "com/yuan/mixin/TimestopClientPacketListenerMixin": {
+      "handleMoveEntity": "Lnet/minecraft/client/multiplayer/ClientPacketListener;m_7865_(Lnet/minecraft/network/protocol/game/ClientboundMoveEntityPacket;)V",
+      "handleSetEntityMotion": "Lnet/minecraft/client/multiplayer/ClientPacketListener;m_8048_(Lnet/minecraft/network/protocol/game/ClientboundSetEntityMotionPacket;)V",
+      "handleTeleportEntity": "Lnet/minecraft/client/multiplayer/ClientPacketListener;m_6435_(Lnet/minecraft/network/protocol/game/ClientboundTeleportEntityPacket;)V",
+      "handleRotateMob": "Lnet/minecraft/client/multiplayer/ClientPacketListener;m_6176_(Lnet/minecraft/network/protocol/game/ClientboundRotateHeadPacket;)V",
+      "handleSetEntityData": "Lnet/minecraft/client/multiplayer/ClientPacketListener;m_6455_(Lnet/minecraft/network/protocol/game/ClientboundSetEntityDataPacket;)V"
+    },
+    "com/yuan/mixin/TimestopEntityRenderMixin": {
+      "render": "Lnet/minecraft/client/renderer/entity/EntityRenderDispatcher;m_114384_(Lnet/minecraft/world/entity/Entity;DDDFFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V"
+    },
+    "com/yuan/mixin/TimestopParticleRenderMixin": {
+      "tick": "Lnet/minecraft/client/particle/ParticleEngine;m_107388_()V",
+      "renderParticles": "Lnet/minecraft/client/particle/ParticleEngine;m_107336_(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;Lnet/minecraft/client/renderer/LightTexture;Lnet/minecraft/client/Camera;F)V"
+    },
+    "com/yuan/mixin/TimestopParticleSpawnMixin": {
+      "add": "Lnet/minecraft/client/particle/ParticleEngine;m_107344_(Lnet/minecraft/client/particle/Particle;)V"
+    },
+    "com/yuan/mixin/TimestopBlockEntityRenderMixin": {
+      "render": "Lnet/minecraft/client/renderer/blockentity/BlockEntityRenderDispatcher;m_112267_(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;)V"
+    },
+    "com/yuan/mixin/TimestopWeatherRenderMixin": {
+      "renderSnowAndRain": "Lnet/minecraft/client/renderer/LevelRenderer;m_109703_(Lnet/minecraft/client/renderer/LightTexture;FDDD)V",
+      "renderClouds": "Lnet/minecraft/client/renderer/LevelRenderer;m_253054_(Lcom/mojang/blaze3d/vertex/PoseStack;Lorg/joml/Matrix4f;FDDD)V",
+      "renderSky": "Lnet/minecraft/client/renderer/LevelRenderer;m_202423_(Lcom/mojang/blaze3d/vertex/PoseStack;Lorg/joml/Matrix4f;FLnet/minecraft/client/Camera;ZLjava/lang/Runnable;)V"
+    },
+    "com/yuan/mixin/TimestopTextureAtlasMixin": {
+      "cycleAnimationFrames": "Lnet/minecraft/client/renderer/texture/TextureAtlas;m_118270_()V"
+    },
+    "com/yuan/mixin/TimestopLevelExtraMixin": {
+      "tickBlockEntities": "Lnet/minecraft/world/level/Level;m_46463_()V",
+      "updateSkyBrightness": "Lnet/minecraft/world/level/Level;m_46465_()V"
+    },
+    "com/yuan/mixin/TimestopServerLevelExtraMixin": {
+      "blockUpdated": "Lnet/minecraft/server/level/ServerLevel;m_6289_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;)V",
+      "tickChunk": "Lnet/minecraft/server/level/ServerLevel;m_8714_(Lnet/minecraft/world/level/chunk/LevelChunk;I)V",
+      "tickCustomSpawners": "Lnet/minecraft/server/level/ServerLevel;m_8799_(ZZ)V",
+      "runBlockEvents": "Lnet/minecraft/server/level/ServerLevel;m_8807_()V",
+      "advanceWeatherCycle": "Lnet/minecraft/server/level/ServerLevel;m_184096_()V",
+      "tickPassenger": "Lnet/minecraft/server/level/ServerLevel;m_8662_(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/Entity;)V"
+    },
+    "com/yuan/mixin/TimestopLevelChunkMixin": {
+      "isTicking": "Lnet/minecraft/world/level/chunk/LevelChunk;m_156410_(Lnet/minecraft/core/BlockPos;)Z"
+    },
+    "com/yuan/mixin/TimestopLevelTicksMixin": {
+      "tick": "Lnet/minecraft/world/ticks/LevelTicks;m_193225_(JILjava/util/function/BiConsumer;)V"
+    },
+    "com/yuan/mixin/TimestopServerChunkCacheMixin": {
+      "tick": "Lnet/minecraft/server/level/ServerChunkCache;m_201698_(Ljava/util/function/BooleanSupplier;Z)V"
+    },
+    "com/yuan/mixin/TimestopFunctionManagerMixin": {
+      "tick": "Lnet/minecraft/server/ServerFunctionManager;m_136128_()V"
+    },
+    "com/yuan/mixin/TimestopEndDragonFightMixin": {
+      "tick": "Lnet/minecraft/world/level/dimension/end/EndDragonFight;m_64095_()V"
+    },
+    "com/yuan/mixin/TimestopRaidsMixin": {
+      "tick": "Lnet/minecraft/world/entity/raid/Raids;m_37957_()V"
+    },
+    "com/yuan/mixin/TimestopWorldBorderMixin": {
+      "tick": "Lnet/minecraft/world/level/border/WorldBorder;m_61969_()V"
+    },
+    "com/yuan/mixin/TimestopExperienceOrbMixin": {
+      "playerTouch": "Lnet/minecraft/world/entity/ExperienceOrb;m_6123_(Lnet/minecraft/world/entity/player/Player;)V"
+    },
+    "com/yuan/mixin/TimestopItemEntityMixin": {
+      "playerTouch": "Lnet/minecraft/world/entity/item/ItemEntity;m_6123_(Lnet/minecraft/world/entity/player/Player;)V"
+    },
+    "com/yuan/mixin/TimestopBlockStateLightMixin": {
+      "getLightEmission": "Lnet/minecraft/world/level/block/state/BlockBehaviour$BlockStateBase;m_60791_()I"
+    },
+    "com/yuan/mixin/TimestopInventoryMixin": {
+      "swapPaint": "Lnet/minecraft/world/entity/player/Inventory;m_35988_(D)V"
+    },
+    "com/yuan/mixin/TimestopKeyboardInputMixin": {
+      "tick": "Lnet/minecraft/client/player/KeyboardInput;m_214106_(ZF)V"
+    },
+    "com/yuan/mixin/TimestopInputConstantsMixin": {
+      "isKeyDown": "Lcom/mojang/blaze3d/platform/InputConstants;m_84830_(JI)Z",
+      "updateRawMouseInput": "Lcom/mojang/blaze3d/platform/InputConstants;m_84848_(JZ)V"
+    },
+    "com/yuan/mixin/TimestopKeyboardHandlerMixin": {
+      "keyPress": "Lnet/minecraft/client/KeyboardHandler;m_90893_(JIIII)V",
+      "tick": "Lnet/minecraft/client/KeyboardHandler;m_90931_()V"
+    },
+    "com/yuan/mixin/TimestopMouseHandlerMixin": {
+      "isMouseGrabbed": "Lnet/minecraft/client/MouseHandler;m_91600_()Z",
+      "grabMouse": "Lnet/minecraft/client/MouseHandler;m_91601_()V"
+    },
+    "com/yuan/mixin/TimestopKeyMappingMixin": {
+      "consumeClick": "Lnet/minecraft/client/KeyMapping;m_90859_()Z"
+    },
+    "com/yuan/mixin/TimestopContainerScreenMixin": {
+      "slotClicked": "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;m_6597_(Lnet/minecraft/world/inventory/Slot;IILnet/minecraft/world/inventory/ClickType;)V"
+    },
+    "com/yuan/mixin/TimestopCreativeScreenMixin": {
+      "slotClicked": "Lnet/minecraft/client/gui/screens/inventory/CreativeModeInventoryScreen;m_6597_(Lnet/minecraft/world/inventory/Slot;IILnet/minecraft/world/inventory/ClickType;)V"
+    },
+    "com/yuan/mixin/TimestopItemInHandMixin": {
+      "tick": "Lnet/minecraft/client/renderer/ItemInHandRenderer;m_109311_()V"
+    },
+    "com/yuan/mixin/TimestopGuiMixin": {
+      "tick": "Lnet/minecraft/client/gui/Gui;m_193832_(Z)V"
+    },
+    "com/yuan/mixin/TimestopMusicManagerMixin": {
+      "tick": "Lnet/minecraft/client/sounds/MusicManager;m_120183_()V"
+    },
+    "com/yuan/mixin/TimestopSoundManagerMixin": {
+      "tick": "Lnet/minecraft/client/sounds/SoundManager;m_120389_(Z)V"
+    },
+    "com/yuan/mixin/TimestopChatListenerMixin": {
+      "tick": "Lnet/minecraft/client/multiplayer/chat/ChatListener;m_240688_()V"
+    },
+    "com/yuan/mixin/TimestopTutorialMixin": {
+      "tick": "Lnet/minecraft/client/tutorial/Tutorial;m_120596_()V"
+    },
+    "com/yuan/mixin/TimestopAdvancementToastMixin": {
+      "render": "Lnet/minecraft/client/gui/components/toasts/AdvancementToast;m_7172_(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/gui/components/toasts/ToastComponent;J)Lnet/minecraft/client/gui/components/toasts/Toast$Visibility;"
+    },
+    "com/yuan/mixin/TimestopLightTextureMixin": {
+      "tick": "Lnet/minecraft/client/renderer/LightTexture;m_109880_()V"
+    },
+    "com/yuan/mixin/TimestopLevelRendererMixin": {
+      "tick": "Lnet/minecraft/client/renderer/LevelRenderer;m_109823_()V",
+      "tickRain": "Lnet/minecraft/client/renderer/LevelRenderer;m_109693_(Lnet/minecraft/client/Camera;)V"
+    },
+    "com/yuan/mixin/TimestopClientLevelMixin": {
+      "tick": "Lnet/minecraft/client/multiplayer/ClientLevel;m_104726_(Ljava/util/function/BooleanSupplier;)V",
+      "doAnimateTick": "Lnet/minecraft/client/multiplayer/ClientLevel;m_233612_(IIIILnet/minecraft/util/RandomSource;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/core/BlockPos$MutableBlockPos;)V"
+    }
+  }
+}
