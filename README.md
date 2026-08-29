@@ -9,13 +9,10 @@
 [![Forge](https://img.shields.io/badge/Forge-47.4.20-00A7E1)](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html)
 [![Java](https://img.shields.io/badge/Java-17-5382A1)]()
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Status](https://img.shields.io/badge/维护状态-停更/维护模式-orange)]()
 [![Platform](https://img.shields.io/badge/平台-Windows-lightgrey)]()
 [![Version](https://img.shields.io/badge/Mod-1.0.0-blue)]()
 
 </div>
-
-> 📌 **基本停更**:本项目目前已基本停止更新(维护模式)——不再添加大型新功能,仅处理严重缺陷与兼容性问题。Issues / PR 依然欢迎。
 
 ---
 
@@ -44,6 +41,7 @@
 | 秒杀手段 | ❌ 无 | ✅ 五种攻击模式 |
 | 专属技能 | 时停 · 空间斩 · 时间回溯 | 时停(老式) · 模式切换 |
 | 配置界面 | G 键(Compose 三页界面) | G 键(传统界面) |
+| 维护状态 | 🟢 活跃开发(主力) | 🔴 停更 · 仅维护 |
 
 ---
 
@@ -57,6 +55,7 @@
 - **专属配置界面**:主手持剑按 **G** 打开,三页导航「时停 / 武器渲染 / 斩击」+ 子页 Tab,
   含真实贴图预览、搜索过滤、预设槽与逐页恢复默认
 - ⚠️ **无秒杀手段**:伤害为普通近战数值,秒杀类攻击模式是**原剑专属**,本剑没有
+- 🟢 **持续开发中**:本模组的主力维护对象,新功能与优化都会集中在这里
 
 ### 🗡️ 原剑 `yuan:yuan_sword`
 
@@ -71,6 +70,7 @@
   | 绝对 | 绝对抹除(可拉黑目标、抑制掉落) |
 
 - ⚠️ **神器之刃没有秒杀手段**:秒杀是本剑独有的能力
+- 🔴 **已停更(仅维护)**:原剑是老式系统,不再新增功能,只处理严重缺陷;主力开发都在「神器之刃」上
 - **Tooltip(悬停信息)样式参考秘法涡流(ArcaneVortex)的「狐狸剑」**:动态狐狸纹背景 +
   彩虹光晕环 + 液态玻璃质感的文字层(悬停时可看到)
 - 老式交互:Shift+右击触发时停;G 打开传统配置界面;G+Ctrl 一键全预设、G+Shift 循环切换预设
