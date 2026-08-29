@@ -11,17 +11,19 @@ re-license them. Please comply with each owner's terms.
   owned by Mojang/Microsoft. Included under Mojang's asset usage guidelines for
   mods. See also `docs/PAPER_SHADERS_NOTICE.md` in this repository.
 
-## ArcaneVortex (cosmic rendering)
+## ArcaneVortex / 秘法涡流 (cosmic rendering)
 
 - `assets/yuan/textures/item/cosmic_0.png` … `cosmic_9.png` — texture images
-  extracted from the third-party ArcaneVortex mod (Forge 1.20.1).
-- `assets/yuan/shaders/core/cosmic_neo.fsh` — shader copied verbatim from the
-  same mod (the "Van Sh" cosmic effect).
+  from the third-party ArcaneVortex mod (Forge 1.20.1).
+- `assets/yuan/shaders/core/cosmic_neo.fsh` — shader copied from the same mod
+  (the "Van Sh" cosmic effect).
 
+ArcaneVortex / 秘法涡流 is originally released by Bilibili UP主「洛谔谔」
+(UID 3546888156481679, see https://space.bilibili.com/3546888156481679).
 These files are used unchanged for the cosmic starfield rendering of the Yuan
 God Sword. ArcaneVortex is a closed-source third-party project; the materials
 above are included for reference and are not licensed under this project's MIT
-license. All rights remain with the ArcaneVortex author(s).
+license. All rights remain with the original author.
 
 ## 超级时停 / megatimestop (sounds)
 
