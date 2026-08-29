@@ -24,6 +24,7 @@
 - [按键](#按键)
 - [构建](#构建)
 - [兼容性与已知限制](#兼容性与已知限制)
+- [目录结构](#目录结构)
 - [许可与致谢](#许可与致谢)
 
 ---
@@ -207,16 +208,18 @@ forge/src/main/java/com/yuan/
 **许可**
 
 - 代码:**MIT**,见 [LICENSE](LICENSE)
-- 第三方内容(ArcaneVortex cosmic 贴图 / shader、megatimestop 音效、Silk shader、原版 Minecraft shader)**不适用 MIT**
+- 复用/移植的第三方内容(ArcaneVortex 贴图与 cosmic shader、megatimestop 音效与后处理 shader、
+  Silk WebGL shader、paper-design/shaders 晶格渲染、Mojang 资源)**不适用 MIT**
   —— 详见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)
 
 **致谢**
 
 | 项目 | 来源 | 用途 |
 |---|---|---|
-| ArcaneVortex(秘法涡流) | 哔哩哔哩 UP主「洛谔谔」[(UID 3546888156481679)](https://space.bilibili.com/3546888156481679) | cosmic 贴图与 shader;原剑 Tooltip 参考其「狐狸剑」 |
-| 超级时停(megatimestop) | 第三方模组 | 时停实现参考 |
+| ArcaneVortex(秘法涡流) | 哔哩哔哩 UP主「洛谔谔」[(UID 3546888156481679)](https://space.bilibili.com/3546888156481679) | cosmic 星空贴图与 shader;原剑 Tooltip 参考其「狐狸剑」 |
+| 超级时停(megatimestop) | 第三方模组 | 时停实现参考;时停音效与 the_world/rewind 后处理 shader |
 | Silk WebGL shader | 开源 shader 项目 | 丝绸渲染移植来源 |
+| paper-design/shaders | 开源项目(Apache-2.0) | 晶格(Voronoi)渲染移植来源 |
 
 ---
 
