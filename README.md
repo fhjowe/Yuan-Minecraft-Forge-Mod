@@ -2,41 +2,66 @@
 
 # ⚔️ Yuan · 原
 
-**Minecraft Forge 1.20.1** 武器 / 防具 / 渲染模组
+**Minecraft Forge 1.20.1** 武器 / 防具 / 渲染模组 ——
 神器之刃的宇宙星空渲染、世界时停、空间斩与时间回溯
 
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.20.1-FF9900)](https://www.minecraft.net/)
 [![Forge](https://img.shields.io/badge/Forge-47.4.20-00A7E1)](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html)
 [![Java](https://img.shields.io/badge/Java-17-5382A1)]()
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Status](https://img.shields.io/badge/维护状态-停更/维护模式-orange)]()
 [![Platform](https://img.shields.io/badge/平台-Windows-lightgrey)]()
 [![Version](https://img.shields.io/badge/Mod-1.0.0-blue)]()
 
 </div>
 
-Yuan 是一个面向 Minecraft **Forge 1.20.1** 的武器/防具模组,核心是一把「原·神器之刃」——
-它拥有 ArcaneVortex(秘法涡流)风格的**宇宙星空渲染**、长按既停的**世界时停**、
-命中即斩的 **3D 空间斩**,以及可回放的**时间回溯**。所有效果都通过 **G 键专属配置界面**
-(Compose 绘制)逐剑保存在 NBT 中,完全自定义。
-
 > 📌 **基本停更**:本项目目前已基本停止更新(维护模式)——不再添加大型新功能,仅处理严重缺陷与兼容性问题。Issues / PR 依然欢迎。
 
 ---
 
-## ✨ 特性
+## 📑 目录
+
+- [两把神剑](#两把神剑)
+- [特性详解](#特性详解)
+- [快速开始与安装](#快速开始与安装)
+- [按键](#按键)
+- [构建](#构建)
+- [兼容性与已知限制](#兼容性与已知限制)
+- [目录结构](#目录结构)
+- [文档](#文档)
+- [许可与致谢](#许可与致谢)
+
+---
+
+## ⚔️ 两把神剑
+
+一个模组,两把定位截然相反的剑:**「原·神器之刃」炫技**,「原剑」秒杀。
+
+| | ⚔️ 原·神器之刃 | 🗡️ 原剑 |
+|---|---|---|
+| 物品 ID | `yuan:yuan_god_sword` | `yuan:yuan_sword` |
+| 定位 | 特效 / 控场 / 回溯 | 一刀流 / 秒杀 |
+| 普通伤害 | 约 9 点(正常近战) | 高额伤害 |
+| 渲染 | cosmic 星空 / 丝绸 / 原版 多风格 | 狐狸剑风格 Tooltip |
+| 秒杀手段 | ❌ 无 | ✅ 五种攻击模式 |
+| 专属技能 | 时停 · 空间斩 · 时间回溯 | 时停(老式) · 模式切换 |
+| 配置界面 | G 键(Compose 三页界面) | G 键(传统界面) |
+
+---
+
+## ✨ 特性详解
 
 ### ⚔️ 原·神器之刃 `yuan:yuan_god_sword`
 
 - **多套渲染风格**:宇宙星空(cosmic)/ 丝绸(silk)/ 原版 / 关闭,逐剑 NBT 保存,随时切换
-- **星空渲染**:ArcaneVortex(秘法涡流)风格 cosmic 星云与星点,基于掩膜(mask)的动态几何烘焙;
+- **星空渲染**:ArcaneVortex(秘法涡流)风格 cosmic 星云星点,基于掩膜(mask)的动态几何烘焙;
   **Oculus / Iris 光影下同样正常显示**(延迟渲染管线)
 - **专属配置界面**:主手持剑按 **G** 打开,三页导航「时停 / 武器渲染 / 斩击」+ 子页 Tab,
   含真实贴图预览、搜索过滤、预设槽与逐页恢复默认
-- ⚠️ **无秒杀手段**:伤害为普通近战数值(约 9 点),秒杀类攻击模式是**原剑专属**,神器之刃没有
+- ⚠️ **无秒杀手段**:伤害为普通近战数值,秒杀类攻击模式是**原剑专属**,本剑没有
 
 ### 🗡️ 原剑 `yuan:yuan_sword`
 
-- 高额伤害的近战剑,老派的"一刀流"手感
 - ☠️ **自带秒杀/湮灭手段(本模组唯一)**——手持时 **Shift + 滚轮** 切换攻击模式:
 
   | 模式 | 效果 |
@@ -58,11 +83,15 @@ Yuan 是一个面向 Minecraft **Forge 1.20.1** 的武器/防具模组,核心是
 - **完整冻结链**:实体 / 方块 / 流体 / 粒子 / 声音 / 天气 / 世界时间 / Boss AI / 光照,全部停住
 - **局域网同步**:时停状态、冻结配置与施法者位置广播给其他玩家
 - **高度自定义**(全部在 G 界面配置):
-  - 画面:黑白 / 复古 / 暗角 三种滤镜、灰度强度、动画
-  - 光球:颜色(8 预设 + 自定义 RGB)、大小、数量、透明度、旋转
-  - 音效:开关、音量、循环
-  - 冻结:范围(0–128 格或全场)、实体 / 方块 / 流体 / Boss AI 分类开关、是否冻结自己
-  - 时长:手动或 1–60 秒自动结束;冷却 0–100 tick;触发方式与弹提示
+
+  | 维度 | 可调项 |
+  |---|---|
+  | 画面 | 黑白 / 复古 / 暗角 滤镜、灰度强度、动画 |
+  | 光球 | 颜色(8 预设 + 自定义 RGB)、大小、数量、透明度、旋转 |
+  | 音效 | 开关、音量、循环 |
+  | 冻结 | 范围(0–128 格或全场)、实体 / 方块 / 流体 / Boss AI 分类开关、是否冻结自己 |
+  | 时长 | 手动或 1–60 秒自动结束;冷却 0–100 tick;触发方式 |
+
 - **与 mega时停 等其它时停模组共存**(MixinExtras 兼容)
 
 ### ⚡ 空间斩
@@ -84,33 +113,45 @@ Yuan 是一个面向 Minecraft **Forge 1.20.1** 的武器/防具模组,核心是
 | 物品 | ID | 说明 |
 |---|---|---|
 | 原·神器之刃 | `yuan:yuan_god_sword` | 星空渲染 + 时停 + 空间斩 + 时间回溯 |
-| 原剑 | `yuan:yuan_sword` | 高额伤害;狐狸剑风格 Tooltip;老式 Shift+右击时停、G+Ctrl/G+Shift 预设 |
+| 原剑 | `yuan:yuan_sword` | 高额伤害;秒杀攻击模式;狐狸剑风格 Tooltip |
 | 原·初始之刃 | `yuan:yuan_origin_blade` | 原银金剑造型 |
 | 斧 / 镐 / 弓 | `yuan:yuan_axe` / `yuan:yuan_pickaxe` / `yuan:yuan_bow` | YUAN 工具与远程武器 |
 | 防具四件 | `yuan:yuan_helmet` … `yuan:yuan_boots` | YUAN 材料装甲 |
 
 ---
 
-## 🚀 安装
+## 🚀 快速开始与安装
 
 1. 准备好 **Forge 47.4.20**(Forge 1.20.1,要求 Java 17)
-2. 下载 `yuan-forge-1.0.0-all.jar`(**请用 `-all` 包**:内含 MixinExtras 运行时,JarJar 打包)
-3. 放入游戏实例的 `mods/` 目录后启动即可
+2. 下载 `yuan-forge-1.0.0-all.jar`(⚠️ **请用 `-all` 包**:内含 MixinExtras 运行时,JarJar 打包)
+3. 放入游戏实例的 `mods/` 目录,启动即可
 
-> 可选装 Oculus / Embeddium 以获得光影;本模组对两者已做适配。
+> 💡 可选装 Oculus / Embeddium 以获得光影;本模组对两者已做适配。
+
+---
 
 ## ⌨️ 按键
 
+### 神剑系(yuan:yuan_god_sword)
+
 | 按键 | 功能 |
 |---|---|
-| **G** | 神剑:专属配置界面;原剑:传统配置界面 |
-| **右键** | 神剑:触发时停(可配置为 Shift+右键 或 自定义键) |
-| **R** | 时停自定义触发键(在 G 界面中选择「自定义键」后生效) |
-| **H** | 背包持神剑时:触发时间回溯;播放中再按:取消 |
-| **Shift + 滚轮** | 原剑:切换攻击模式(诛灭/凌迟/崩坏/寂灭/绝对) |
-| **Shift + 右键** | 原剑:触发时停(老式系统) |
+| **右键** | 触发时停(可配置为 Shift+右键 或 自定义键) |
+| **G** | 打开专属配置界面 |
+| **H** | 触发时间回溯;播放中再按取消 |
+| **R** | 时停自定义触发键(在 G 界面选「自定义键」后生效) |
 
-所有按键可在 游戏内「选项 → 控制 → Yuan」中改绑。
+### 原剑系(yuan:yuan_sword)
+
+| 按键 | 功能 |
+|---|---|
+| **Shift + 滚轮** | 切换攻击模式(诛灭 / 凌迟 / 崩坏 / 寂灭 / 绝对) |
+| **Shift + 右键** | 触发时停(老式系统) |
+| **G** | 打开传统配置界面 |
+| **G + Ctrl** | 一键全预设 |
+| **G + Shift** | 循环切换预设 |
+
+> 所有按键均可在 游戏内「选项 → 控制 → Yuan」中改绑。
 
 ---
 
@@ -124,6 +165,21 @@ $env:PATH="$env:JAVA_HOME\bin;$env:PATH"
 ```
 
 构建产物:`forge/build/libs/yuan-forge-1.0.0-all.jar`(部署用 `-all` 包)。
+
+---
+
+## 💬 兼容性与已知限制
+
+| 类型 | 说明 |
+|---|---|
+| ✔️ 必要 | Forge `[47,48)`、Java 17、单人 / 局域网 |
+| ✔️ 可选 | Iris / Oculus 光影、Embeddium |
+| ✔️ 共存 | 可与 mega时停 等其它时停模组同装 |
+
+**已知限制**
+
+- 时间回溯的**动画回放**在局域网内其它玩家视角暂不可见(进行中)
+- 时停中液体贴图动画暂未冻结
 
 ---
 
@@ -146,15 +202,6 @@ forge/src/main/java/com/yuan/
 
 ---
 
-## 💬 兼容性与已知限制
-
-- **必要**:Forge `[47,48)`、Java 17、单人 / 局域网
-- **可选**:Iris / Oculus 光影、Embeddium
-- 与 mega时停 等其它插件可共存
-- 已知限制:时间回溯的**动画回放**在局域网内其它玩家视角暂不可见(进行中);液体贴图动画在时停中暂未冻结
-
----
-
 ## 📖 文档
 
 - 开发交接 / 完整变更记录:`docs/YUANMOD_HANDOFF_CURRENT.md`
@@ -165,12 +212,19 @@ forge/src/main/java/com/yuan/
 
 ## 📜 许可与致谢
 
+**许可**
+
 - 代码:**MIT**,见 [LICENSE](LICENSE)
-- 第三方内容(ArcaneVortex cosmic 贴图/shader、megatimestop 音效、Silk shader、原版 Minecraft shader)**不适用 MIT** —— 详见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)
-- 特别致谢:
-  - **ArcaneVortex(秘法涡流)** —— 哔哩哔哩 UP主「洛谔谔」(UID 3546888156481679):cosmic 渲染的贴图与 shader 来源;**原剑的 Tooltip 悬停样式参考其武器「狐狸剑」**
-  - **超级时停(megatimestop)** —— 时停实现参考
-  - **Silk WebGL shader** —— 丝绸渲染移植来源
+- 第三方内容(ArcaneVortex cosmic 贴图 / shader、megatimestop 音效、Silk shader、原版 Minecraft shader)**不适用 MIT**
+  —— 详见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)
+
+**致谢**
+
+| 项目 | 来源 | 用途 |
+|---|---|---|
+| ArcaneVortex(秘法涡流) | 哔哩哔哩 UP主「洛谔谔」[(UID 3546888156481679)](https://space.bilibili.com/3546888156481679) | cosmic 贴图与 shader;原剑 Tooltip 参考其「狐狸剑」 |
+| 超级时停(megatimestop) | 第三方模组 | 时停实现参考 |
+| Silk WebGL shader | 开源 shader 项目 | 丝绸渲染移植来源 |
 
 ---
 
