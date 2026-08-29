@@ -6,10 +6,10 @@ re-license them. Please comply with each owner's terms.
 
 ## Minecraft / Mojang
 
-- `assets/minecraft/shaders/*` (e.g. `the_world.json`, `yuan_world_style.json`,
-  `motion_blur`, `rewind`, `yuan_style`) — vanilla Minecraft shader resources,
-  owned by Mojang/Microsoft. Included under Mojang's asset usage guidelines for
-  mods.
+- The shader pipeline runs on Minecraft's vanilla shader framework, and
+  `yuan_style.json` uses the vanilla `blit` vertex program. Game assets and the
+  shader framework are owned by Mojang/Microsoft and used under their
+  modding/asset guidelines.
 
 ## paper-design/shaders (晶格 / Voronoi rendering)
 
@@ -41,11 +41,19 @@ God Sword. ArcaneVortex is a closed-source third-party project; the materials
 above are included for reference and are not licensed under this project's MIT
 license. All rights remain with the original author.
 
-## 超级时停 / megatimestop (sounds)
+## 超级时停 / megatimestop (sounds & post-processing)
 
 - `assets/yuan/sounds/stop.ogg`, `assets/yuan/sounds/start.ogg` — sound files
   copied from the reference resources of the third-party mod `超级时停`
-  (megatimestop). All rights remain with the original author.
+  (megatimestop).
+- `assets/yuan/textures/item/white.png` — plain white texture copied from the
+  same mod's reference resources.
+- `assets/minecraft/shaders/post/the_world.json` (the gray-screen "The World"
+  post chain) and the `motion_blur` / `rewind` program shaders are ported from
+  that mod's reference resources; `yuan_world_style.json` / `yuan_style.*` are
+  custom variants built on top of those programs.
+
+All rights remain with the original author.
 
 ## Silk WebGL shader (silk rendering)
 
