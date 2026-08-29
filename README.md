@@ -19,6 +19,8 @@ Yuan 是一个面向 Minecraft **Forge 1.20.1** 的武器/防具模组,核心是
 命中即斩的 **3D 空间斩**,以及可回放的**时间回溯**。所有效果都通过 **G 键专属配置界面**
 (Compose 绘制)逐剑保存在 NBT 中,完全自定义。
 
+> 📌 **基本停更**:本项目目前已基本停止更新(维护模式)——不再添加大型新功能,仅处理严重缺陷与兼容性问题。Issues / PR 依然欢迎。
+
 ---
 
 ## ✨ 特性
@@ -30,6 +32,13 @@ Yuan 是一个面向 Minecraft **Forge 1.20.1** 的武器/防具模组,核心是
   **Oculus / Iris 光影下同样正常显示**(延迟渲染管线)
 - **专属配置界面**:主手持剑按 **G** 打开,三页导航「时停 / 武器渲染 / 斩击」+ 子页 Tab,
   含真实贴图预览、搜索过滤、预设槽与逐页恢复默认
+
+### 🗡️ 原剑 `yuan:yuan_sword`
+
+- 高额伤害的近战剑,老派的"一刀流"手感
+- **Tooltip(悬停信息)样式参考秘法涡流(ArcaneVortex)的「狐狸剑」**:动态狐狸纹背景 +
+  彩虹光晕环 + 液态玻璃质感的文字层(悬停时可看到)
+- 老式交互:Shift+右击触发时停;G 打开传统配置界面;G+Ctrl 一键全预设、G+Shift 循环切换预设
 
 ### ⏸️ 世界时停
 
@@ -63,7 +72,7 @@ Yuan 是一个面向 Minecraft **Forge 1.20.1** 的武器/防具模组,核心是
 | 物品 | ID | 说明 |
 |---|---|---|
 | 原·神器之刃 | `yuan:yuan_god_sword` | 星空渲染 + 时停 + 空间斩 + 时间回溯 |
-| 虚渊剑 | `yuan:yuan_sword` | 极高攻击力,老式 Shift+右击时停、预设(G+Ctrl/G+Shift) |
+| 原剑 | `yuan:yuan_sword` | 高额伤害;狐狸剑风格 Tooltip;老式 Shift+右击时停、G+Ctrl/G+Shift 预设 |
 | 原·初始之刃 | `yuan:yuan_origin_blade` | 原银金剑造型 |
 | 斧 / 镐 / 弓 | `yuan:yuan_axe` / `yuan:yuan_pickaxe` / `yuan:yuan_bow` | YUAN 工具与远程武器 |
 | 防具四件 | `yuan:yuan_helmet` … `yuan:yuan_boots` | YUAN 材料装甲 |
@@ -82,11 +91,11 @@ Yuan 是一个面向 Minecraft **Forge 1.20.1** 的武器/防具模组,核心是
 
 | 按键 | 功能 |
 |---|---|
-| **G** | 神剑:打开专属配置界面;虚渊剑:打开传统配置界面 |
+| **G** | 神剑:专属配置界面;原剑:传统配置界面 |
 | **右键** | 神剑:触发时停(可配置为 Shift+右键 或 自定义键) |
 | **R** | 时停自定义触发键(在 G 界面中选择「自定义键」后生效) |
 | **H** | 背包持神剑时:触发时间回溯;播放中再按:取消 |
-| **Shift + 右键** | 虚渊剑:触发时停(老式系统) |
+| **Shift + 右键** | 原剑:触发时停(老式系统) |
 
 所有按键可在 游戏内「选项 → 控制 → Yuan」中改绑。
 
@@ -146,7 +155,7 @@ forge/src/main/java/com/yuan/
 - 代码:**MIT**,见 [LICENSE](LICENSE)
 - 第三方内容(ArcaneVortex cosmic 贴图/shader、megatimestop 音效、Silk shader、原版 Minecraft shader)**不适用 MIT** —— 详见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)
 - 特别致谢:
-  - **ArcaneVortex(秘法涡流)** —— 哔哩哔哩 UP主「洛谔谔」(UID 3546888156481679):cosmic 渲染的贴图与 shader 来源
+  - **ArcaneVortex(秘法涡流)** —— 哔哩哔哩 UP主「洛谔谔」(UID 3546888156481679):cosmic 渲染的贴图与 shader 来源;**原剑的 Tooltip 悬停样式参考其武器「狐狸剑」**
   - **超级时停(megatimestop)** —— 时停实现参考
   - **Silk WebGL shader** —— 丝绸渲染移植来源
 
